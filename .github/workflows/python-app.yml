@@ -19,5 +19,9 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          kill $(lsof -t -i :8000) || true
-          uvicorn test:app --host 78.47.238.241 --port 8000 --reload
+            run: |
+              kill $(lsof -t -i:8000) || echo "No process running on port 8000"
+
+      - name: Start service
+        run: |
+          uvicorn test:app --host 78.47.238.241 --port 8000 &
