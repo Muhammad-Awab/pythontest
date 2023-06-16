@@ -25,4 +25,5 @@ jobs:
 
       - name: Start service
         run: |
+          cd /root/actions-runner/_work/pythontest/pythontest  
           uvicorn test:app --host 78.47.238.241 --port 8000 &
